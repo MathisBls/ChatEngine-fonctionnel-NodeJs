@@ -1,0 +1,10 @@
+# TUNNEL FACULTATIF
+version: 2
+authtoken: AUTHTOKEN
+tunnels:
+  frontend:
+    proto: http
+    addr: 5173
+  backend:
+    proto: http
+    addr: 3001
