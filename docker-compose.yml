@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    networks:
+      - app-network
+
+  ngrok:
+    image: wernight/ngrok
+    ports:
+      - "4040:4040"
+    command: ngrok start --all --config /ngrok/ngrok.yml
+    volumes:
+      - ./ngrok.yml:/ngrok/ngrok.yml
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

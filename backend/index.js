@@ -1,6 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const { default: axios } = require("axios");
+require('dotenv').config();
+
+const private_key = process.env.PRIVATE_KEY;
 
 const app = express();
 app.use(express.json());
@@ -13,7 +16,7 @@ app.post("/authenticate", async (req, res) => {
     const r = await axios.put(
       'https://api.chatengine.io/users/',
       { username: username, secret: username, first_name: username},
-      { headers: { "private-key": "PRIVATE_KEY" } }
+      { headers: { "private-key": private_key } }
     );
 
     return res.status(r.status).json(r.data);

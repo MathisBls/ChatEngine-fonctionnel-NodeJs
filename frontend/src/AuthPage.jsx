@@ -1,6 +1,9 @@
 import axios from "axios";
 
 const AuthPage = (props) => {
+
+  // env REACT_APP_BASE_URL
+
     const onSubmit = (e) => {
       e.preventDefault();
       const { value } = e.target[0];

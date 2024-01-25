@@ -1,10 +1,13 @@
 # TUNNEL FACULTATIF
 version: 2
-authtoken: AUTHTOKEN
+authtoken: 2LesG6U5SRSuJ8u6pgj2AdnMimU_4S7i3PSEEDe8LyoZLN2r5
 tunnels:
   frontend:
     proto: http
     addr: 5173
+    subdomain: mon-tunnel
+    bind_tls: true
   backend:
     proto: http
     addr: 3001
+    bind_tls: true
